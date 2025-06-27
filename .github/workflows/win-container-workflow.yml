@@ -23,6 +23,6 @@ jobs:
 
       - name: 'Build and push image'
         run: |
-          docker build --build-arg RUNNER_VERSION=${{ env.RUNNER_VERSION }} -t ghcr.io/${{ github.repository_owner }}/pwd9000-github-runner-win:${{ env.RUNNER_VERSION }} .
-          docker push ghcr.io/${{ github.repository_owner }}/dcokercomp-win-github-runner-win:${{ env.RUNNER_VERSION }}
+          docker build --build-arg RUNNER_VERSION=${{ env.RUNNER_VERSION }} -t ghcr.io/${{ github.repository_owner }}/dockercomp-github-runner-win:${{ env.RUNNER_VERSION }} .
+          docker push ghcr.io/${{ github.repository_owner }}/dockercomp-win-github-runner-win:${{ env.RUNNER_VERSION }}
 
