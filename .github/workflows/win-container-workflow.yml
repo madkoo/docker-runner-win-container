@@ -1,0 +1,28 @@
+name: Windows_Container_Workflow
+
+on:
+  workflow_dispatch:
+
+env:
+  RUNNER_VERSION: 2.325.0
+
+jobs:
+  build-and-push:
+    runs-on: windows-latest
+    steps:
+      # checkout the repo
+      - name: 'Checkout GitHub Action'
+        uses: actions/checkout@main
+
+      - name: 'Login to GitHub Container Registry'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 'Build and push image'
+        run: |
+          docker build --build-arg RUNNER_VERSION=${{ env.RUNNER_VERSION }} -t ghcr.io/${{ github.repository_owner }}/pwd9000-github-runner-win:${{ env.RUNNER_VERSION }} .
+          docker push ghcr.io/${{ github.repository_owner }}/dcokercomp-win-github-runner-win:${{ env.RUNNER_VERSION }}
+
