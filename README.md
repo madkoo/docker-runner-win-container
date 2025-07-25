@@ -18,7 +18,7 @@ docker build --build-arg RUNNER_VERSION=2.325.0 --tag docker-github-runner-win .
 ```
 docker run -e GH_TOKEN='myPatToken' -e GH_OWNER='orgName' -e GH_REPOSITORY='repoName' -d image-name
 ```
-
+docker run -e GH_TOKEN='ghp_Zkhbbfaj2WJHYaCBI3NAgnKL0aRXWW4Qahp' -e GH_OWNER='demo-org-madkoo' -e GH_REPOSITORY='agent-week' -d dockercomp-github-runner-win
 
 
 ### stop runner

@@ -10,3 +10,5 @@ services:
         RUNNER_VERSION: '2.325.0'
     env_file:
       - ./variables.env
+    volumes:
+      - \\.\pipe\docker_engine:\\.\pipe\docker_engine

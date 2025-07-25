@@ -48,6 +48,9 @@ RUN choco install -y \
 RUN choco install -y \
     sql-server-express
 
+# Install Docker CLI
+RUN choco install -y docker-cli
+
 #Download GitHub Runner based on RUNNER_VERSION argument (Can use: Docker build --build-arg RUNNER_VERSION=x.y.z)
 RUN Invoke-WebRequest -Uri "https://github.com/actions/runner/releases/download/v$env:RUNNER_VERSION/actions-runner-win-x64-$env:RUNNER_VERSION.zip" -OutFile "actions-runner.zip"; \
     Expand-Archive -Path ".\\actions-runner.zip" -DestinationPath '.'; \
